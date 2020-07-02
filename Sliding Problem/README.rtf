@@ -1,0 +1,53 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11100\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs42 \cf0 This is a sliding problem conceived by Joshua \'93Josh\'94 Keegan of Onslow College 2019\
+\
+The code in this project will decide wither of not a person could slide on ice to every location in a grid\
+The Grid will have blocks placed around it at which the person is stoped and then must choose another direction. \
+The walls of the grid count as blocks\
+\
+\
+The code contains a board class and a tile class. And will solve for every location. This means that the person could start at any position on the board and still touch every reach every location/tile\
+\
+To do this I will nodeify the board. Putting a node at every point that can be contacted. I will then link the nodes to other nodes.\
+\
+I need to make sure that every node can be connected to every other node directly or indirectly.\
+If this is not the case the problem is impossible and the code can stop there.\
+\
+Def nodeify\
+Returns a list of nodes. \
+A node is a point touching a block and hence could be turned. \
+A node will have a position and nodes that it links to\
+Def check_linkage\
+	- I will take a random node. (Probs the first node)\
+	-Then make a LIFO tree that searches every node and appends it to a list of found nodes if it is not already in there. NOTE: I cannot let the tree go backwards.\
+	-If every node in the original tree is in the list of found nodes. It is good.\
+Def flip switches\
+	-Flip switches in-between nodes\
+\
+These steps need to be taken because of this example:\
+|\'97\'97\'97\'97\'97\'97\'97\'97|\'97\'97\'97\'97\'97\'97|\
+|			    |			 |\
+|                                                   |\
+|			_  |                      |\
+|			    |                      |\
+|			                           |\
+|			    |                      |\
+|\'97\'97\'97\'97\'97\'97\'97\'97|\'97\'97\'97\'97\'97\'97|\
+\
+NOTE: This is the extreme example that shows why these steps must be taken and why there are no work arounds\
+\
+Current improvements:\
+Make the node class aware of where it links to\
+\
+Eventually the code will:\
+Find if it is possible for a given starting position/ from a singular starting position\
+Find all solutions for a given value of nxn sized boards\
+Find all unique solutions for given value of nxn sized boards\
+\
+}
